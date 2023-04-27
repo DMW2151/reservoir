@@ -21,7 +21,6 @@ Algorithm L also constructs a uniform sample over a stream, but improves on Algo
 cpu: Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz
 Benchmark_EvaluateSampler_AlgorithmL/1M_tiny_reservoir-8                   92446        	 12619 ns/op
 Benchmark_EvaluateSampler_AlgorithmL/1M_small_reservoir-8                  23392             50853 ns/op
-Benchmark_EvaluateSampler_AlgorithmL/1M_large_reservoir-8                    100          10764712 ns/op
 Benchmark_EvaluateSampler_AlgorithmL/8M_tiny_reservoir-8                      86          14206785 ns/op
 Benchmark_EvaluateSampler_AlgorithmL/8M_small_reservoir-8                     86          14653064 ns/op
 Benchmark_EvaluateSampler_AlgorithmL/8M_large_reservoir-8                     39          28500859 ns/op
@@ -29,15 +28,17 @@ Benchmark_EvaluateSampler_AlgorithmL/8M_large_reservoir-8                     39
 
 ```text
 cpu: Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz
-
-
-
-
-
-
+Benchmark_EvaluateSampler_AlgorithmR                                        
+Benchmark_EvaluateSampler_AlgorithmR/1M_tiny_reservoir-8                   50774             23666 ns/op
+Benchmark_EvaluateSampler_AlgorithmR/1M_small_reservoir-8                  58366             20586 ns/op
+Benchmark_EvaluateSampler_AlgorithmR/8M_tiny_reservoir-8                       6         174645414 ns/op
+Benchmark_EvaluateSampler_AlgorithmR/8M_small_reservoir-8                      6         177875939 ns/op
+Benchmark_EvaluateSampler_AlgorithmR/8M_large_reservoir-8                      6         180855144 ns/op
 ```
 
 ## Appendix
+
+...
 
 ## Additional Reading
 

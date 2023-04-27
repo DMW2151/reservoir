@@ -31,12 +31,6 @@ var benchmarkScenarios = []struct {
 		samplesToProcces: 1024,
 	},
 	{
-		name:             "1M_large_reservoir",
-		reservoirSize:    benchmarkLargereservoir,
-		seed:             benchmarkSeed,
-		samplesToProcces: 1024 * 1024,
-	},
-	{
 		name:             "8M_tiny_reservoir",
 		reservoirSize:    benchmarkTinyreservoir,
 		seed:             benchmarkSeed,

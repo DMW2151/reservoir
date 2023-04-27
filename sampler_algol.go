@@ -5,11 +5,9 @@ import (
 	"math/rand"
 )
 
-// LSampler - implements Sampler - holds metadata to runs algorithm-L from
-// Devroye (1986) and/or Li (1994)
-// see:
-// 	- https://dl.acm.org/doi/pdf/10.1145/198429.198435
-// 	- http://luc.devroye.org/chapter_twelve.pdf
+// LSampler - implements Sampler - holds metadata to run algorithm-L as
+// presented in Li (1994) - https://dl.acm.org/doi/pdf/10.1145/198429.198435
+// see also: http://luc.devroye.org/chapter_twelve.pdf
 type LSampler struct {
 	resSize int64
 	rSrc    *rand.Rand
@@ -28,7 +26,7 @@ func (ls *LSampler) reset() {
 func (ls *LSampler) evaluateSample(sidx int64) (int64, bool) {
 
 	// sample index contained in (resSize, ls.s) - do nothing,
-	// upfront b.c. most common case on sufficiently large streams
+	// upfront b.c.most common case on sufficiently large streams
 	if (ls.resSize < sidx) && (sidx < ls.s) {
 		return 0, false
 	}
