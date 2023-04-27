@@ -31,6 +31,8 @@ func main() {
 
 ## Benchmarks
 
+Because Algo-L produces multiple values for each write into the resevoir, at smaller values of $\frac{N}{n}$ Algo-R can beat Algo-L. For small reservoirs and large streams, Algo-L can skip hundreds of successive events and we observe >10x performance over Algo-R. 
+
 ```text
 cpu: Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz
 Benchmark_EvaluateSampler_AlgorithmL/1M_tiny_reservoir-8    92446       12619 ns/op
@@ -50,12 +52,10 @@ Benchmark_EvaluateSampler_AlgorithmR/8M_small_reservoir-8       6   177875939 ns
 Benchmark_EvaluateSampler_AlgorithmR/8M_large_reservoir-8       6   180855144 ns/op
 ```
 
-## Appendix
-
-...
-
 ## Additional Reading
 
 - *Random Sampling With a Reservoir* ([Vitter, 1985](https://www.cs.umd.edu/~samir/498/vitter.pdf))
 
 - *Non-Uniform Random Variate Generation* ([Devroye, 1986](http://luc.devroye.org/chapter_twelve.pdf))
+
+- [*Statistical Justifications/Properties for Algo L*](https://blog.morespinach.xyz/reservoir.html)
