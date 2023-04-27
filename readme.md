@@ -2,6 +2,13 @@
 
 Implements Algorithm-L from *Reservoir-Sampling Algorithms of Time Complexity O(n(1 + log(N/n)))* ([Li, 1994](https://dl.acm.org/doi/10.1145/198429.198435))
 
+## Motivation
+
+...
+
+## Use
+
+...
 
 ## Additional Reading
 
