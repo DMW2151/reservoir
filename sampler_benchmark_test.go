@@ -56,28 +56,6 @@ var (
 	}
 )
 
-// Benchmark_EvaluateSampler_AlgorithmR - Benchmark simplest algoR implementation
-func Benchmark_EvaluateSampler_AlgorithmR(b *testing.B) {
-	for _, bm := range benchmarkScenarios {
-		b.Run(bm.name, func(b *testing.B) {
-
-			for n := 0; n < b.N; n++ {
-
-				b.StopTimer()
-				rs := RSampler{
-					resSize: bm.reservoirSize,
-					rSrc:    rand.New(rand.NewSource(bm.seed)),
-				}
-				b.StartTimer()
-
-				for i := 0; i < bm.samplesToProcces; i++ {
-					rs.evaluateSample(int64(i))
-				}
-			}
-		})
-	}
-}
-
 // Benchmark_EvaluateSampler_AlgorithmL - Benchmark algoL implementation
 func Benchmark_EvaluateSampler_AlgorithmL(b *testing.B) {
 	for _, bm := range benchmarkScenarios {
