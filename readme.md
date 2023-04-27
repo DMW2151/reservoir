@@ -8,22 +8,36 @@ In some circumstances, one may wish to construct a uniform sample of fixed size 
 
 One solution (Algorithm R) to this problem is to include the first $n$ events of the stream in the sample and then include the i-th event with probability $\frac{n}{i}$. On large streams, this algorithm becomes less efficient, as it generates random values for each event, even as the acceptance probability, $\frac{n}{i}$, converges to 0. 
 
-Algorithm L also constructs a uniform sample over a stream, but improves on Algorithm R's, performance by generating significantly fewer random values on large streams.
+Algorithm L also constructs a uniform sample over a stream, but improves on Algorithm R's performance by generating significantly fewer random values on large streams.
 
 ## Use
 
-...
+```go
+import "github.com/dmw2151/reservoir"
 
+func main() {
+	// New Sampler w. reservoir of 4 events, rand seed of 2152
+	s := reservoir.NewReservoirSample[int](4, 2152)
+
+	// Feed Sampler 10 events
+	for i := 0; i < 10; i++ {
+		s.ReadSample(i)
+	}
+
+	// Check Sampler's reservoir, retains: [3 7 8 2]
+	fmt.Printf("reservoir: %d\n" , s.Samples())
+}
+```
 
 ## Benchmarks
 
 ```text
 cpu: Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz
-Benchmark_EvaluateSampler_AlgorithmL/1M_tiny_reservoir-8    92446      12619 ns/op
-Benchmark_EvaluateSampler_AlgorithmL/1M_small_reservoir-8   23392      50853 ns/op
-Benchmark_EvaluateSampler_AlgorithmL/8M_tiny_reservoir-8       86   14206785 ns/op
-Benchmark_EvaluateSampler_AlgorithmL/8M_small_reservoir-8      86   14653064 ns/op
-Benchmark_EvaluateSampler_AlgorithmL/8M_large_reservoir-8      39   28500859 ns/op
+Benchmark_EvaluateSampler_AlgorithmL/1M_tiny_reservoir-8    92446       12619 ns/op
+Benchmark_EvaluateSampler_AlgorithmL/1M_small_reservoir-8   23392       50853 ns/op
+Benchmark_EvaluateSampler_AlgorithmL/8M_tiny_reservoir-8       86    14206785 ns/op
+Benchmark_EvaluateSampler_AlgorithmL/8M_small_reservoir-8      86    14653064 ns/op
+Benchmark_EvaluateSampler_AlgorithmL/8M_large_reservoir-8      39    28500859 ns/op
 ```
 
 ```text
