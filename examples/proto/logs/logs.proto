@@ -1,0 +1,23 @@
+/*
+protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative ./proto/logs/logs.proto 
+*/
+
+syntax = "proto3";
+
+package logs;
+option go_package = "logs/proto";
+
+service Logs {
+    rpc Submit (LogRequest) returns (LogResponse);
+}
+
+// LogRequest
+message LogRequest {
+    string msg = 1;
+}
+
+// LogResponse
+message LogResponse {
+  bool ok = 1;
+}
